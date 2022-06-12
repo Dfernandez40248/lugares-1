@@ -1,13 +1,16 @@
 package com.example.lugares
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.SyncStateContract.Helpers.update
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.example.lugares.databinding.ActivityMainBinding
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -39,6 +42,18 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun update(user: FirebaseUser?) {
+        if (user != null){
+            val intent = Intent(this,PrincipalActivity::class.java)
+            startActivity(intent)
+        }
+    }
+    public override fun onStart() {
+        super.onStart()
+        val user = auth.currentUser
+        update(user)
+    }
+
     private fun register() {
         val email = binding.txtEmail.text.toString()
         val password = binding.txtPassword.text.toString()
@@ -47,9 +62,11 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful){
                 val user = auth.currentUser
                 Log.d("User Register", "Success")
+                update(user)
             }else{
                 Log.d("User Register", "Fail")
                 Toast.makeText(baseContext,"Register Fail",Toast.LENGTH_LONG).show()
+                update(null)
             }
         }
     }
@@ -62,11 +79,14 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful){
                 val user = auth.currentUser
                 Log.d("User login", "Success")
+                update(user)
             }else{
                 Log.d("User login", "Fail")
                 Toast.makeText(baseContext,"Login Fail",Toast.LENGTH_LONG).show()
+                update(null)
             }
         }
     }
+
 
 }
