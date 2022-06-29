@@ -31,11 +31,11 @@
             app:destination="@id/nav_lugar" />
     <fragment
         android:id="@+id/addLugar3Fragment"
-        android:name="com.example.lugares.ui.lugar.AddLugar4Fragment"
+        android:name="com.example.lugares.ui.lugar.AddLugar3Fragment"
         android:label="fragment_add_lugar4"
         tools:layout="@layout/fragment_add_lugar4" >
         <action
-            android:id="@+id/action_addLugar3Fragment_to_nav_lugar"
+            android:id="@+id/action_addLugarFragment_to_nav_lugar"
             app:destination="@id/nav_lugar" />
     </fragment>
 

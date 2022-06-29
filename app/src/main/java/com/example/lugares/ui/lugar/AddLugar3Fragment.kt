@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.lugares.R
+import com.example.lugares.databinding.FragmentAddLugar3Binding
 import com.example.lugares.databinding.FragmentAddLugarBinding
 import com.example.lugares.model.Lugar
 import com.example.lugares.viewmodel.LugarViewModel
 
 
 class AddLugar3Fragment : Fragment() {
-    private var _binding:FragmentAddLugarBinding? = null
+    private var _binding: FragmentAddLugar3Binding? = null
     private val binding get() = _binding!!
 
     private lateinit var lugarViewModel: LugarViewModel
@@ -24,10 +25,10 @@ class AddLugar3Fragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddLugarBinding.inflate(inflater, container, false)
+        _binding = FragmentAddLugar3Binding.inflate(inflater, container, false)
 
         lugarViewModel = ViewModelProvider(this).get(LugarViewModel::class.java)
-        binding.btnsubmit.setOnClickListener{ addLugar()}
+        binding.btnsubmit3.setOnClickListener{ addLugar()}
 
 
         return binding.root
@@ -35,7 +36,7 @@ class AddLugar3Fragment : Fragment() {
     }
 
     private fun addLugar() {
-        val nombre = binding.lugarName.text.toString()
+        val nombre = binding.lugarName3.text.toString()
 
         if (validation(nombre)){
             //guardar lugar

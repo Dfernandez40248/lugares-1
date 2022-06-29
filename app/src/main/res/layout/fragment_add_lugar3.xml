@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/lugarName"
+            android:id="@+id/lugarName3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -19,7 +19,7 @@
             android:text="Name" />
 
         <Button
-            android:id="@+id/btnsubmit"
+            android:id="@+id/btnsubmit3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sumit" />
